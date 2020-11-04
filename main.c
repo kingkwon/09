@@ -1,30 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 5
+#define SIZE 4
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-// Practice 03
+// Practice 04
+void square_array(int a[], int size);
+void print_array(int a[], int size);
+
 int main(void) {
 	
-	int i;
-	int grade[SIZE];
-	int score[SIZE];
-	int flag_same = 1;
+	int list[SIZE] = {1, 2, 3, 4};
 	
-	for(i=0; i<SIZE; i++)
-	{
-		grade[i] = rand() % 100;
-		score[i] = grade[i];
-		printf("score[%d] = %d\n", i, score[i]);
-	}	
-	for(i=0; i<SIZE; i++)
-	{
-		if(grade[i] != score[i])
-		{
-			flag_same = 0;
-		}
-	}
-	printf("flag_same = %d", flag_same);
+	print_array(list, SIZE);
+	square_array(list, SIZE);
+	print_array(list, SIZE);
 	
 	return 0;
+}
+
+void square_array(int a[], int size)
+{
+	int i;
+	
+	for(i=0; i<size; i++)
+	{
+		a[i] = a[i] * a[i];
+	}
+}
+
+void print_array(int a[], int size)
+{
+	int i;
+	
+	for(i=0; i<size; i++)
+	{
+		printf("%3d", a[i]);
+	}
+	printf("\n");
 }
