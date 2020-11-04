@@ -3,26 +3,28 @@
 #define SIZE 5
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-// Practice 01
+// Practice 03
 int main(void) {
 	
-	int i, average;
-	int sum =0;
+	int i;
 	int grade[SIZE];
-	
-	printf("5명의 점수를 입력하세요.\n");
+	int score[SIZE];
+	int flag_same = 1;
 	
 	for(i=0; i<SIZE; i++)
 	{
-		scanf("%d", &grade[i]);
-		sum += grade[i];
-	}
+		grade[i] = rand() % 100;
+		score[i] = grade[i];
+		printf("score[%d] = %d\n", i, score[i]);
+	}	
 	for(i=0; i<SIZE; i++)
 	{
-		printf("grade[%d] = %d\n", i, grade[i]);
+		if(grade[i] != score[i])
+		{
+			flag_same = 0;
+		}
 	}
-	average = sum / SIZE;
-	printf("성적 평균 : %d\n", average);	
+	printf("flag_same = %d", flag_same);
 	
 	return 0;
 }
